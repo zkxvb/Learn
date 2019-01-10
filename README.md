@@ -1,6 +1,2 @@
 # Learn
-Learn Something
-te
-te2
-
-zkx
+These are some record of Learn something
