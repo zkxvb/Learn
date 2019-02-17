@@ -4,18 +4,14 @@
 # VS_Code搭建C/C++编译器
 1. [参考链接](https://www.jianshu.com/p/a0ae073e973b?utm_campaign=maleskine&utm_content=note&utm_medium=seo_notes&utm_source=recommendation)
 
-2. 需要的插件：“C/C++”，该插件提供C/C++语言支持，简单的编辑，编译，调试等功能
+2. [Vscode官网参考链接](https://code.visualstudio.com/docs/languages/cpp)
 
-3. 额外的工具：“MinGW（Minimalist GNU for Windows）”，因为Windows没有GNU工具包，安装好后需要设置Path环境变量，完成这一步骤时，若VS_Code开启，则需要重启VS_Code
+2. 需要的插件：“C/C++”，该插件提供C/C++语言支持，简单的编辑，编译，调试等功能 
 
-    |包|说明|
-    |:-:|:-:
-    |mingw32-gcc.bin |GNU C 编译器
-    |mingw32-gcc-g++.bin | GNU C++ 编译器
-    |mingw32-gdb.bin | GNU 调试器
+3. 额外的工具：MinGW-W64，注意不是MinGw，这个已经停止维护了，有很多坑 ，安装MinGW-W，并添加系统环境变量path
 
 4. 添加配置文件:
-    - 新建C/C++源文件，编写一个简单的程序，按下生成快捷键 "ctrl+shift+B"，第一次生成时,VS_Code会提示找不到生成的配置文件take.json，点击上方提示 "配置生成任务"
-    - 
+    - take.json，用来build项目；打开命令面板(ctrl+shift+p)，输入tasks，选择Tasks:Configure Task，配置task.json，可参照vscode官网来写配置文件
+    - launch.json，用来debug代码；最左边的一栏有个调式按钮(小虫子)，进入调式窗口，点击设置按钮，添加launch.json配置文件，详细配置可参照vscode官网
 
 
