@@ -17,8 +17,19 @@
     - launch.json，用来debug代码；最左边的一栏有个调式按钮(小虫子)，进入调式窗口，点击设置按钮，添加launch.json配置文件，详细配置可参照vscode官
     网
 
+# python开发环境搭建
+
+
 # Vs_Code使用
 1. 更改主题快捷键：首先ctrl+k, 然后ctrl+t
-2.
+2. 函数跳转：F12，跳转回来：ctrl+"-"
+3. C/C++头文件不能打开的问题：
+    - [参考](https://blog.csdn.net/qq_33202928/article/details/85099892)
+    - vscode安装完成，MinGW安装完成并设置好环境变量，编写C程序时，提示说打不开标准头文件
+    - 这种情况需要设置头文件的导入路径，在.vscode文件夹下添加c_cpp_properties.json文件（或点击旁边的提示），并设置includePath属性
+    - includePath属性的获得：cmd下执行命令 "gcc -v -E -x c++ -"
+    - 将得到的include路径填入includePath配置即可
+    ![](Picture/VScode_include路径配置.png)
+
 
 
