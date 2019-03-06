@@ -21,6 +21,9 @@
     - [VS msdn](https://social.msdn.microsoft.com/forums/vstudio/en-us/home?category=visualstudio%2cvslanguages%2cvstfs%2cnetdevelopment%2cvsarch)
     - 
 
+4. 解决问题时一定要控制好变量，这样才能知道出现问题的原因以及如何解决这个问题
+
+5. 
 
 # Linux下实践遇到的问题
 1. 
