@@ -1,5 +1,7 @@
 # VS_Code内置Git的使用
-- Git的命令使用：在VS_Code中使用组合键 "ctrl + `" 即可在下方调出win命令窗口（终端），这这个窗口里面正常使用Git命令即可
+1. Git的命令使用：
+    - 在VS_Code中使用组合键 "ctrl + `" 即可在下方调出win命令窗口（终端），这这个窗口里面正常使用Git命令即可
+    - VSCode终端命令刚开始时不能运行，CMD中可以运行；这时以管理员身份运行VSCode一次即可解决这个问题
 
 # VS_Code搭建C/C++编译器
 1. [参考链接](https://www.jianshu.com/p/a0ae073e973b?utm_campaign=maleskine&utm_content=note&utm_medium=seo_notes&utm_source=recommendation)
@@ -30,6 +32,13 @@
     - includePath属性的获得：cmd下执行命令 "gcc -v -E -x c++ -"
     - 将得到的include路径填入includePath配置即可
     ![](Picture/VScode_include路径配置.png)
+4. 上下左右快捷键的设置
+```
+    {
+        "key":"alt+j",
+        "command":"cursorDown"
+    }
+```
 
 
 
