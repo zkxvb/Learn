@@ -17,7 +17,7 @@
 15. Git：项目开发，记录笔记
 16. Arcobat Reader：PDF阅读器
 17. IDM：轻量高速的下载工具
-    - [IDM分享资源](http://idman.ys168.com/)
+    - [IDM分享资源](http://idman.ys168.com/)：可以获得最新的IDMGCExt.crx文件，IDM本身还是使用IDM-v6.29
     - IDM的Chrome插件：
     ```
         方案1：使用IDM官方插件
