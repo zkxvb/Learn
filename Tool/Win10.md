@@ -9,6 +9,8 @@
 7. chrome：浏览网页
 8. snipaste：快速截图
 9. Anaconda：快速搭建python开发环境
+    - 安装时可以不选择Add path选项，这样不能在CMD中调用conda
+    - 在环境变量Path中添加路径：C:\MyProgram\Anaconda3和C:\MyProgram\Anaconda3\Scripts（安装路径）即可在CMD中正常调用conda
 10. WinScp：FTP，SFTP等文件传输
 11. Mobaxterm：远程登陆
 12. Everything：快速搜索文件
@@ -17,7 +19,7 @@
 15. Git：项目开发，记录笔记
 16. Arcobat Reader：PDF阅读器
 17. IDM：轻量高速的下载工具
-    - [IDM分享资源](http://idman.ys168.com/)：可以获得最新的IDMGCExt.crx文件，IDM本身还是使用IDM-v6.29
+    - [IDM分享资源](http://idman.ys168.com/)：可以获得最新的IDMGCExt.crx文件，IDM本身还是IDM-v6.29最好使
     - IDM的Chrome插件：
     ```
         方案1：使用IDM官方插件
