@@ -39,6 +39,18 @@
         "command":"cursorDown"
     }
 ```
+5. 终端的使用
+```
+    1. VScode的终端（terminal）非常方便，可以使用Windows终端的的所有命令
+        - git-bash：Windows安装git_bash后，可以在terminal中直接使用git命令
+        - ssh：Windows安装ssh（Mobaxterm或其他）后，可以在terminal使用ssh命令连接服务器
+```
+6. 插件的使用
+```
+    1. SSH FS插件，安装后设置好参数，即可连接服务器，将其文件系统作为一个文件夹，显示在文件栏中
+        - 前提：需要先在Windows上（host）安装好SSH软件（如，Mobaxterm），该插件会调用ssh软件
+        - 使用：结合terminal，使用ssh命令连接Server，可以在Server中运行，调试程序
+```
 
 
 
