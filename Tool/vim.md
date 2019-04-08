@@ -1,4 +1,4 @@
-# vim 常用配置
+# vim常用配置
 ```
     set nu
     set ts=4            //tab键的长度
@@ -7,3 +7,5 @@
     set softtabstop=4   //退回键删除
     %retab!             //加!是用于处理非空白字符之后的TAB，即所有的TAB，若不加!，则只处理行首的TAB
 ```
+# vim使用
+1. [vim多文件编辑](https://harttle.land/2015/11/12/vim-tabpage.html)
