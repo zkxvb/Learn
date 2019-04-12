@@ -11,6 +11,10 @@
 3. 需要的插件：
     - “C/C++”，该插件提供C/C++语言支持，简单的编辑，编译，调试等功能
     - “Code Runner”，该插件用来执行代码，快捷键（ctrl+alt+n）
+    ```
+        通过设置该插件的Run in Terminal选项，程序使用integrated Terminal作为输入输出
+    ```
+    > ![](Picture/CodeRunner.png)
     - “Run In Terminal”，程序的输出，运行是在内嵌的Terminal中，而不是在OUTPUT窗口中，可以进行输入操作
 
 4. 额外的工具：MinGW-W64，注意不是MinGw，这个已经停止维护了，有很多坑 ，安装MinGW-W，并添加系统环境变量path
@@ -21,7 +25,14 @@
     网
 
 # python开发环境搭建
-
+1. 安装python开发环境，可以单独安装python，也可以安装Anaconda
+2. 安装插件python，并设置python路径
+> ![](Picture/python_path.png)
+3. 启动调试：添加python对应的launch.json文件，并修改python的路径即可
+4. Conda SSLError问题：
+    - [参考链接](https://www.zhihu.com/question/312635523)
+    - 原因：缺少openssl动态链接库
+    - 解决方法：安装一个[openssl动态链接库](http://slproweb.com/products/Win32OpenSSL.html)即可，安装成功后，conda可以正常运行
 
 # Vs_Code使用
 1. 更改主题快捷键：首先ctrl+k, 然后ctrl+t
