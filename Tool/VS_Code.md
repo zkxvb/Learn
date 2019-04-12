@@ -25,11 +25,12 @@
     网
 
 # python开发环境搭建
-1. 安装python开发环境，可以单独安装python，也可以安装Anaconda
-2. 安装插件python，并设置python路径
+1. [参考链接](https://zhuanlan.zhihu.com/p/30324113)
+2. 安装python开发环境，可以单独安装python，也可以安装Anaconda
+3. 安装插件python，并设置python路径
 > ![](Picture/python_path.png)
-3. 启动调试：添加python对应的launch.json文件，并修改python的路径即可
-4. Conda SSLError问题：
+4. 启动调试：添加python对应的launch.json文件，并修改python的路径即可
+5. Conda SSLError问题：
     - [参考链接](https://www.zhihu.com/question/312635523)
     - 原因：缺少openssl动态链接库
     - 解决方法：安装一个[openssl动态链接库](http://slproweb.com/products/Win32OpenSSL.html)即可，安装成功后，conda可以正常运行
