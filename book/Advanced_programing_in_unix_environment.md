@@ -160,4 +160,84 @@
 ```
 
 # 8 进程控制
-## 
+## 8.1 进程标识
+1. 系统专用进程
+```
+    ID为0的进程通常是调度进程（交换进程），该进程是内核的一部分，它并不执行任何磁盘上的程序，因此也被称为系统进程。
+
+    ID为1的进程通常是init进程，在自举过程结束时由内核调用。该进程的程序文件在UNIX早期版本中是/etc/init，在较新版本中是/sbin/init。此进程负责在自举内核后启动一个UNIX系统。init通常读取与系统有关的初始化文件（/etc/rc*文件或/etc/inittab文件，以及在/etc/init.d中的文件）并将系统引导到一个状态（如多用户）。
+    init进程决不会终止，它是一个普通的用户进程（与交换进程不同，它不是内核中的系统进程），但是以超级用户特权运行。
+
+    每个UNIX系统实现都有它自己的一套提供操作系统服务的内核进程。如在某些UNIX的虚拟存储器实现中，进程ID2是页守护进程，负责支持虚拟存储器系统的分页操作。
+```
+2. 获得进程标识的函数
+```
+    #include <unistd.h>
+    pid_t getpid(void);         //调用进程的进程ID
+    pid_t getppid(void);        //调用进程的父进程ID
+    pid_t getuid(void);         //调用进程的的实际用户ID
+    pid_t geteuid(void);        //调用进程的有效用户ID
+    pid_t getgid(void);         //调用进程的的实际组ID
+    pid_t getegid(void);        //调用进程的有效组ID
+```
+## 8.2 函数fork
+1. fork函数
+    - 子进程和父进程继续执行fork调用之后的指令。
+    - 子进程是父进程的副本，如子进程获得父进程数据空间、堆和栈的**副本**。父进程和子进程并不共享这些存储空间部分，仅共享正文段
+    ```
+        #include <unistd.h>
+        pid_t fork(void);
+    ```
+2. 写时复制（Copy-On-Write, COW)
+3. 例子：子进程对变量所作的改变并不影响父进程中该变量的值
+```
+    #include <apue.h>
+
+    int  globvar = 6;
+    char buf[] = "a write to stdout\n"
+
+    int main()
+    {
+        int var;
+        pid_t pid;
+
+        var = 88;
+        if(write(STDOUT_FILENO, buf, sizeof(buf)-1) != sizeof(buf)-1)   
+            err_sys("write error");
+        printf("before fork\n");        //we don't flush stdout
+
+        if((pid = fork()) < 0){
+            err_sys("fork error");
+        }else if(pid == 0){             //child
+            globvar++;
+            var++;
+        }else{
+            sleep(2);
+        }
+        printf("pid = %ld, glob = %d, var = %d\n", (long)getpid(), globvar, var);
+        exit(0);
+    }
+
+
+    //output: execute via ./a.out
+    a write to stdout
+    before fork                        //标准I/O连接到终端，行缓冲
+    pid = 430, glob = 7, var = 89      //子进程的变量值变了
+    pid = 429, glob = 6, var = 88      //父进程的变量值没有改变
+    
+    //output: execute via ./a.out > temp.out
+    a write to stdout                   //write函数无缓冲
+    before fork                         //标准I/O连接到文件，全缓冲
+    pid = 432, glob = 7, var = 89
+    before fork
+    pid = 431, glob = 6, var = 88
+
+    why?
+    1. 写标准输出时，将buf长度减1作为输出字节数，为了避免将终止null字符写出
+    2. strlen计算不包括终止null字节的字符串长度；而sizeof则计算包括终止null字节的缓冲区长度
+    3. strlen发生一次函数调用；sizeof，因为缓冲区已用已知字符串进行初始化，其长度是固定的，所以sizeof在编译时计算缓冲区长度
+    4. write函数不带缓冲，直接输出。
+    5. 标准I/O库是带缓冲的，若标准输出连到终端设备，则它是行缓冲的，否则是全缓冲的。
+    6. 父进程和子进程共享文件偏移量（虽然文件描述符不同，但是文件表是相同的，即共用一个文件状态标志，一个文件偏移，一个v节点）
+```
+

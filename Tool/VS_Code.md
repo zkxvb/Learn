@@ -10,6 +10,7 @@
 
 3. 需要的插件：
     - “C/C++”，该插件提供C/C++语言支持，简单的编辑，编译，调试等功能
+    - “Code Runner”，该插件用来执行代码，快捷键（ctrl+alt+n）
     - “Run In Terminal”，程序的输出，运行是在内嵌的Terminal中，而不是在OUTPUT窗口中，可以进行输入操作
 
 4. 额外的工具：MinGW-W64，注意不是MinGw，这个已经停止维护了，有很多坑 ，安装MinGW-W，并添加系统环境变量path
