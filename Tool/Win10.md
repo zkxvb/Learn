@@ -39,4 +39,10 @@
         6，安装成功后，打开百度网盘网页版，会出现下载助手选项，如下图
     ```
     ![百度网盘下载助手截图](Picture/BaiduYunPan_Assistant.png)
+    - IDM_v6.32
+    ```
+        1. [参考链接](https://odcn.top/2019/03/03/2780/%E8%BD%AC%E8%BD%BD%EF%BC%9A%E6%96%B0%E7%89%88idm%E5%8F%AF%E4%BB%A5%E7%9B%B4%E6%8E%A5%E6%8D%95%E6%8D%89%E3%80%81%E4%B8%8B%E8%BD%BD%E5%90%84%E7%A7%8D%E6%A0%BC%E5%BC%8F%E7%9A%84%E7%BD%91%E9%A1%B5/)
+        2. 注意事项：
+            - 运行压缩包 Crack.zip 中的 IDM_6.2x_Crack.exe 进行破解后，需要重新启动电脑，才能向chrome中添加插件
+    ```
 18. [正版中国](https://getitfree.cn/)：会有一些限时免费的软件，很好使
