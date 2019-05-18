@@ -240,4 +240,45 @@
     5. 标准I/O库是带缓冲的，若标准输出连到终端设备，则它是行缓冲的，否则是全缓冲的。
     6. 父进程和子进程共享文件偏移量（虽然文件描述符不同，但是文件表是相同的，即共用一个文件状态标志，一个文件偏移，一个v节点）
 ```
+## 8.3 vfork
+1. vfork函数用于创建一个新进程，而该进程的目的是exec一个新程序；vfork保证子进程先运行
+2. 基于上述目的，vfork创建的新进程并不将父进程的地址空间完全**复制**到子进程
+3. 在子进程调用exec或exit之前，**它在父进程的空间中运行，与fork不同**
+4. 在父进程的空间中运行时，若子进程修改数据，进行函数调用，或没有调用exec或exit就返回都可能带来未知的结果
+
+## 8.4 函数exit
+1. 进程有5种正常终止和3种异常终止
+2. 无论进程如何终止，最后都会执行内核种的同一段代码：为相应进程关闭所有打开描述符，释放它所使用的存储器等
+3. 对于父进程已经终止的所有进程，它们的父进程都改变为init进程
+    - 在一个进程终止时，内核逐个检查所有活动进程，以判断它是否是正要终止进程的子进程，如果是，则该进程的父进程ID就更改为1 
+4. 内核为每个终止子进程保存了一定量的信息，当终止进程的父进程调用wait或waitpid时，可以得到这些信息
+
+## 8.5 wait函数系列
+1. wait和waitpid
+```
+    #include<sys/wait.h>
+    pid_t wait(int *staloc);    //若staloc不是一个空指针，则终止进程的终止状态就存放在它所指向的单元
+    pid_t wait(pid_t pid, int *staloc, int options);
+```
+2. waitid
+```
+    #include<sys/wait.h>
+    int waitid(idtype_t idtype, id_t id, siginfo_t *infop, int options);
+    
+    //此函数类似于waitpid，但提供了更多的灵活性
+    //siginfo结构：包含了造成子进程状态改变有关信号的详细信息
+```
+3. wait3和wait4
+```
+    #include<sys/types.h>
+    #include<sys/wait.h>
+    #include<sys/time.h>
+    #include<sys/resource.h>
+    pid_t wait3(int *staloc, int options, struct rusage *rusage);
+    pid_t wait4(pid_t pid, int *staloc, int options, struct rusage *rusage);
+
+    //这两个函数允许内核返回由终止进程及其所有子进程使用资源概况
+```
+## 
+
 
