@@ -46,5 +46,5 @@
 # Centos7 使用
 
 * laptop with Centos7 do not suspend when close lid of laptop
-  - vim /etc/systemd/logind.conf        -> set HandleLidSwitch=lock
+  - vim /etc/systemd/logind.conf
   > ![](Picture/laptop_lid_switch.png) 
