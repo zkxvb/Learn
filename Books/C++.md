@@ -79,3 +79,28 @@
 
 # Linux下实践遇到的问题
 1. 
+
+
+
+--------------------------
+
+# C++ concurrency
+
+## 线程管理
+
+1. Std::thread() 接受任何可调用类型
+
+2. Using RAII to wait for a thread to complete，确保thread.join在正确的时机被调用
+
+3. 给线程传递参数时，需要注意，std::thread接口只拷贝值，即使传一个引用；不会自动转换类型（需要我们自己提前转换好）
+
+   ```c++
+   // 如果我们想传递一个引用，并在线程中更新这个参数，需要结合 std::ref
+   std::thread t(update_date_for_widget, w, std::ref(data));
+   
+   // 绑定类的一个成员函数
+   X my_x;
+   std::thread t(&X::do_something, &my_x);				--> my_x.do_something()
+   ```
+
+4. 

@@ -1,4 +1,4 @@
-### Centos7 connect the Internet via command-line
+### Centos7 connect the Internet via command-line (must first use "sudo -s" to change the root mode)
 
 * edit file "/etc/sysconfig/network-scripts/ifcfg-wlp3s0"
   - the name of wlan interface is "wlp3s0"
@@ -25,3 +25,8 @@
     state of wlp3s0 can get the state via "ip addr"
   ```
   - dhclient wlp3s0                       -> auto allocate ip address (necessary)
+
+### configure vim
+* update origin vim to vim 8.1 for ycm
+```c++
+```
